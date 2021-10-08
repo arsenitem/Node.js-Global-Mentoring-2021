@@ -7,10 +7,9 @@ let txtFilePath = './output.txt';
 
 const readStream = fs.createReadStream(csvFilePath);
 const writeStream = fs.createWriteStream(txtFilePath);
-
 pipeline(
     readStream,
-    csv({checkType: true}).fromFile(csvFilePath),
+    csv({checkType: true}),
     writeStream,
     (err) => {
       if (err) {
