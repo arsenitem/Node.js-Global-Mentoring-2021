@@ -1,4 +1,4 @@
-# Homework 1.
+# Homework 2.
 
 ## Installation
 1. `npm install`
