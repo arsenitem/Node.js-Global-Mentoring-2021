@@ -1,4 +1,4 @@
-import Joi from "joi";
+import Joi, { func } from "joi";
 
 export const validationSchemaCreate = Joi.object().keys({
     login: Joi.string().required(),
@@ -9,3 +9,11 @@ export const validationSchemaCreate = Joi.object().keys({
 export const validationSchemaUpdate = validationSchemaCreate.keys({
     id: Joi.string().guid({version:'uuidv4'}).required()
 });
+
+export const createUserResponse = function(user, response) {
+    if (user) {
+        response.json(user);
+    } else {
+        response.status(400).json({status: "failed", error: "User not found"});
+    }
+}
