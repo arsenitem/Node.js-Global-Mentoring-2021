@@ -53,17 +53,17 @@ const addUsersToGroup = async(groupId, userIds) => {
 
     try {
         let records = userIds.map(userId => {
-            return {group_id: groupId, user_id: userId}
+            return {group_id: groupId, user_id: userId};
         })
-        transaction = await sequelize.transaction();
-        let rr = await userGroupModel.bulkCreate(records)
-        console.log(rr)
-        await transaction.commit();
 
+        transaction = await sequelize.transaction();
+        await userGroupModel.bulkCreate(records);
+        await transaction.commit();
+        return true;
     } catch (err) {
         console.log(err)
         if (transaction) await transaction.rollback();
-        console.log("aborted transaction")
+        return false;
     }
 }
 

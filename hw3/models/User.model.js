@@ -1,12 +1,11 @@
-import { DataTypes } from "sequelize";
-import { v4 as uuidv4 } from "uuid";
+import { DataTypes, Sequelize } from "sequelize";
 export default (sequelize) => {
     sequelize.define('user', {
         id: {
             allowNull: false,
             primaryKey: true,
             type: DataTypes.UUIDV4,
-            defaultValue: uuidv4()
+            defaultValue: Sequelize.literal('uuid_generate_v4()')
         },
         login: {
             allowNull: false,

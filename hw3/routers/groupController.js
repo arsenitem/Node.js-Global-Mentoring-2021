@@ -40,9 +40,9 @@ router.post('/add_users', async (req, res) => {
     let body = req.body;
     let result = await groupService.addUsersToGroup(body.group_id, body.user_ids);
     if (result) {
-        return 
+        return res.json({status: "success"});
     } else {
-        res.status(400).json({status: "failed", error: "not found"});
+        res.status(400).json({status: "failed"});
     }
 })
 
