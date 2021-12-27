@@ -9,3 +9,8 @@ export const validationSchemaUserCreate = Joi.object().keys({
 export const validationSchemaUserUpdate = validationSchemaUserCreate.keys({
     id: Joi.string().guid({version:'uuidv4'}).required()
 });
+
+export const validationAuthSchema = Joi.object({
+    login: Joi.string().required(),
+    password: Joi.string().alphanum().required()
+  });
