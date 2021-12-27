@@ -1,4 +1,4 @@
-# Homework 5.
+# Homework 6.
 
 ## Installation
 1. `npm install`
@@ -7,12 +7,20 @@
 
 1. `npm run server`
 
-Create user. POST `localhost:3000/user` with json body.
+Login. POST `localhost:3000/login` with json body.
 ex. 
 ```js{
     "login": "login",
     "password": "pass4432",
     "age": 5
+}
+```
+
+Create user. POST `localhost:3000/user` with json body.
+ex. 
+```js{
+    "login": "login",
+    "password": "pass4432"
 }
 ```
 
